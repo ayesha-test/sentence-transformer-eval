@@ -4,6 +4,8 @@ Offline evaluator for generated text. **Sentence-transformer embeddings** score 
 
 This is the pattern I use when judging non-deterministic AI: lexical metrics (BLEU, ROUGE, token overlap) punish valid paraphrase and reward copy-paste. Cosine similarity on `all-MiniLM-L6-v2` does the opposite — it scores meaning.
 
+Lexical companion: [bleu-eval](https://github.com/ayesha-test/bleu-eval) — same sample tickets, scored with sentence-level BLEU instead of embeddings.
+
 ```
 source text ──► [structure] ──► [term coverage] ──► [sentence-transformer cosine]
                      20%              60%                     20%
