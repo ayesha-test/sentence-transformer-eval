@@ -1,0 +1,45 @@
+[
+  {
+    "id": "paraphrase-pass",
+    "label": "Good paraphrase — same meaning, different words",
+    "source_text": "Customer cannot log in on Android version 14 after the latest update. Password reset emails are delayed. No workaround available.",
+    "generated_output": "Login is broken on Android 14 following the recent update. Password reset mail is delayed and there is no workaround.",
+    "expect_pass": true
+  },
+  {
+    "id": "copy-pass",
+    "label": "Near copy-paste — high lexical overlap",
+    "source_text": "Payments fail on iOS 17. Token refresh returns invalid token.",
+    "generated_output": "Payments fail on iOS 17. Token refresh returns invalid token during checkout.",
+    "expect_pass": true
+  },
+  {
+    "id": "missing-facts-fail",
+    "label": "Drops critical facts — coverage hard-fail",
+    "source_text": "The dashboard is slow when importing a CSV of invoices. Export still works.",
+    "generated_output": "Export still works for invoices.",
+    "expect_pass": false
+  },
+  {
+    "id": "hallucination-gap",
+    "label": "Invented fact — known faithfulness gap",
+    "source_text": "Payments fail on iOS 17. Token refresh returns invalid token.",
+    "generated_output": "Payments fail on iOS 17 because of an invalid token. A refund was processed to the customer's card.",
+    "expect_pass": true,
+    "note": "Passes keyword coverage and similarity while adding a fact that is not in the source."
+  },
+  {
+    "id": "unrelated-fail",
+    "label": "Unrelated output — low semantic similarity",
+    "source_text": "Two-factor authentication codes are not arriving on mobile.",
+    "generated_output": "The billing page layout has been updated for the admin panel.",
+    "expect_pass": false
+  },
+  {
+    "id": "empty-fail",
+    "label": "Empty output — structure fail",
+    "source_text": "Crash on login after password update.",
+    "generated_output": "",
+    "expect_pass": false
+  }
+]
